@@ -1381,4 +1381,61 @@ body.simple-dashboard-bg {
 }
 .task-search-input:focus {
   border: 1.5px solid #2563eb;
+}
+
+.due-dates-chips {
+  display: flex;
+  gap: 18px;
+  margin: 18px 0 0 0;
+  flex-wrap: wrap;
+}
+
+.due-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #f8fafc;
+  border-radius: 24px;
+  padding: 8px 18px;
+  box-shadow: 0 1px 4px rgba(30,40,60,0.04);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.due-icon {
+  font-size: 1.2rem;
+  color: #1a2747;
+}
+
+.due-label {
+  font-weight: 700;
+  color: #1a2747;
+  margin-right: 4px;
+}
+
+.due-date {
+  color: #2563eb;
+  font-weight: 600;
+  margin-right: 4px;
+}
+
+.due-days {
+  color: #6b7280;
+  font-size: 0.98rem;
+  font-style: italic;
+}
+
+.dashboard-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+@media (max-width: 700px) {
+  .dashboard-header-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
 } 
