@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard de Tareas</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="simple-dashboard-bg">
+  <!-- NAVBAR SUPERIOR -->
+  <header class="topbar">
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+      <span class="hamburger-icon" aria-label="Expandir menú" aria-hidden="false">
+        <i class="fas fa-bars hamburger-icon-fa"></i>
+      </span>
+      <span class="sidebar-toggle-label"></span>
+    </button>
+    <div class="topbar-right">
+      <div class="notification-bell" onclick="toggleNotifications()">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notification-dot"></span>
+      </div>
+      <div class="user-profile">
+        <span>V Martin</span>
+        <img src="https://i.imgur.com/1Q9Z1Zm.png" alt="User">
+      </div>
+    </div>
+  </header>
+
+  <!-- SIDEBAR -->
+  <div id="sidebar" class="sidebar open">
+    <nav class="main-nav">
+      <ul>
+        <li class="active"><i class="fas fa-chart-line"></i><span title="Double Materiality">Double Materiality</span></li>
+        <li><i class="fas fa-cloud"></i><span title="Carbon Emissions">Carbon Emissions</span></li>
+        <li><i class="fas fa-leaf"></i><span title="Biodiversity & Pollution">Biodiversity & Pollution</span></li>
+        <li><i class="fas fa-file-alt"></i><span title="VSME Reporting">VSME Reporting</span></li>
+        <li><i class="fas fa-clipboard-check"></i><span title="CSRD Reporting">CSRD Reporting</span></li>
+        <li><i class="fas fa-chart-pie"></i><span title="Sustainability Analysis">Sustainability Analysis</span></li>
+        <li><i class="fas fa-graduation-cap"></i><span title="NPA Academy">NPA Academy</span></li>
+        <li><i class="fas fa-book"></i><span title="Frameworks & Standards">Frameworks & Standards</span></li>
+        <li><i class="fas fa-folder"></i><span title="Document Library">Document Library</span></li>
+        <li><i class="fas fa-certificate"></i><span title="Certifications">Certifications</span></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- CONTENIDO PRINCIPAL -->
+  <div class="main">
+    <div class="dashboard-container">
+      <header class="dashboard-header">
+        <h1>Task Dashboard</h1>
+      </header>
+      <section class="dashboard-summary">
+        <div class="summary-circle">
+          <svg width="110" height="110">
+            <circle cx="55" cy="55" r="50" stroke="#e0e0e0" stroke-width="10" fill="none"/>
+            <circle cx="55" cy="55" r="50" stroke="#1a2747" stroke-width="10" fill="none" stroke-dasharray="314" stroke-dashoffset="188"/>
+          </svg>
+          <div class="circle-percentage">40%</div>
+        </div>
+        <div class="summary-stats">
+          <div class="stat stat-completadas"><span class="stat-number">10</span><span class="stat-label">Completed</span></div>
+          <div class="stat stat-in-progress"><span class="stat-number">5</span><span class="stat-label">In progress</span></div>
+          <div class="stat stat-pendientes"><span class="stat-number">15</span><span class="stat-label">Pending</span></div>
+        </div>
+      </section>
+      <section class="status-row-with-filter">
+        <input type="text" id="task-search-input" class="task-search-input" placeholder="Search tasks..." oninput="filterTasks()" style="display:none;">
+        <button class="inline-search-btn" id="inline-search-btn" onclick="toggleTaskSearchInput()">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <button class="inline-filter-btn" onclick="openFiltersPanel()">
+          <i class="fa-solid fa-filter"></i>
+        </button>
+      </section>
+      <section class="task-cards-columns">
+        <div class="task-column">
+          <div class="task-card">
+            <span class="task-status status-pending">Pending</span>
+          </div>
+          <div class="task-card">
+            <div class="task-title">B3 Energy and Gases</div>
+            <div class="task-meta">
+              <span class="task-responsible">Juan</span>
+              <span class="task-date">2025-06-20</span>
+            </div>
+            <a href="#" class="cta-link">
+              View Details <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="task-column">
+          <div class="task-card">
+            <span class="task-status status-inprogress">In progress</span>
+          </div>
+          <div class="task-card">
+            <div class="task-title">B4 Pollution</div>
+            <div class="task-meta">
+              <span class="task-responsible">Ana</span>
+              <span class="task-date">2025-06-25</span>
+            </div>
+            <a href="#" class="cta-link">
+              View Details <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+        <div class="task-column">
+          <div class="task-card">
+            <span class="task-status status-done">Completed</span>
+          </div>
+          <div class="task-card">
+            <div class="task-title">B5 Biodiversity</div>
+            <div class="task-meta">
+              <span class="task-responsible">Luis</span>
+              <span class="task-date">2025-06-10</span>
+            </div>
+            <a href="#" class="cta-link">
+              View Details <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Panel lateral de filtros -->
+      <div id="filters-panel" class="filters-panel">
+        <div class="filters-panel-content">
+          <label>Module</label>
+          <select><option>Filter by Module</option></select>
+          <label>Status</label>
+          <select><option>Filter by Status</option></select>
+          <label>Collector</label>
+          <select><option>Filter by Collector</option></select>
+          <label>Reviewer</label>
+          <select><option>Filter by Reviewer</option></select>
+          <div class="filters-panel-actions">
+            <button class="button primary">Search</button>
+            <button class="button">Reset filters</button>
+            <button class="button export">Export Data <i class="fa-regular fa-file-excel"></i></button>
+            <button class="button export">Export Report <i class="fa-regular fa-file-pdf"></i></button>
+          </div>
+        </div>
+      </div>
+      <div id="filters-panel-backdrop" class="filters-panel-backdrop" onclick="closeFiltersPanel()"></div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html> 

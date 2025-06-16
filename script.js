@@ -68,4 +68,46 @@ function setAllProgressCircles() {
     circle.style.strokeDashoffset = offset;
   });
 }
-setAllProgressCircles(); 
+setAllProgressCircles();
+
+function openFiltersPanel() {
+  document.getElementById('filters-panel').classList.add('open');
+  document.getElementById('filters-panel-backdrop').style.display = 'block';
+}
+
+function closeFiltersPanel() {
+  document.getElementById('filters-panel').classList.remove('open');
+  document.getElementById('filters-panel-backdrop').style.display = 'none';
+}
+
+function toggleFiltersBar() {
+  const bar = document.getElementById('dashboard-filters-bar');
+  const icon = document.getElementById('collapse-filters-icon');
+  bar.classList.toggle('collapsed');
+  if (bar.classList.contains('collapsed')) {
+    icon.innerHTML = '<i class="fa-solid fa-chevron-down"></i>';
+  } else {
+    icon.innerHTML = '<i class="fa-solid fa-chevron-up"></i>';
+  }
+}
+
+function toggleMiniFiltersPanel() {
+  const panel = document.getElementById('filters-mini-panel');
+  panel.classList.toggle('collapsed');
+}
+
+function toggleTaskSearchInput() {
+  const input = document.getElementById('task-search-input');
+  if (input.style.display === 'none' || input.style.display === '') {
+    input.style.display = 'inline-block';
+    input.focus();
+  } else {
+    input.style.display = 'none';
+    input.value = '';
+    filterTasks();
+  }
+}
+
+function filterTasks() {
+  // Aquí puedes agregar lógica para filtrar las cards de tareas por texto
+} 
