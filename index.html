@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>NPA Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <button class="sidebar-toggle" onclick="toggleSidebar()">
+      <span class="hamburger-icon" aria-label="Expandir menú" aria-hidden="false">
+        <i class="fas fa-bars hamburger-icon-fa"></i>
+      </span>
+      <span class="sidebar-toggle-label"></span>
+    </button>
+    <div class="topbar-right">
+      <div class="notification-bell" onclick="toggleNotifications()">
+        <i class="fa-solid fa-bell"></i>
+        <span class="notification-dot"></span>
+      </div>
+      <div class="user-profile">
+        <span>V Martin</span>
+        <img src="https://i.imgur.com/1Q9Z1Zm.png" alt="User">
+      </div>
+    </div>
+  </header>
+  <div id="sidebar" class="sidebar open">
+    <nav class="main-nav">
+      <ul>
+        <li class="active"><i class="fas fa-chart-line"></i><span title="Double Materiality">Double Materiality</span></li>
+        <li><i class="fas fa-cloud"></i><span title="Carbon Emissions">Carbon Emissions</span></li>
+        <li><i class="fas fa-leaf"></i><span title="Biodiversity & Pollution">Biodiversity & Pollution</span></li>
+        <li><i class="fas fa-file-alt"></i><span title="VSME Reporting">VSME Reporting</span></li>
+        <li><i class="fas fa-clipboard-check"></i><span title="CSRD Reporting">CSRD Reporting</span></li>
+        <li><i class="fas fa-chart-pie"></i><span title="Sustainability Analysis">Sustainability Analysis</span></li>
+        <li><i class="fas fa-graduation-cap"></i><span title="NPA Academy">NPA Academy</span></li>
+        <li><i class="fas fa-book"></i><span title="Frameworks & Standards">Frameworks & Standards</span></li>
+        <li><i class="fas fa-folder"></i><span title="Document Library">Document Library</span></li>
+        <li><i class="fas fa-certificate"></i><span title="Certifications">Certifications</span></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="main">
+    <header class="main-header">
+      <div class="header-left">
+        <h1>New Co 2 Sustainability Dashboard</h1>
+        <p class="subtitle">Track your sustainability progress and compliance</p>
+      </div>
+    </header>
+
+    <div class="dashboard-content">
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-info-circle"></i></div>
+          <div class="stat-value">15</div>
+          <div class="stat-label">Informative Items</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon"><i class="fas fa-chart-bar"></i></div>
+          <div class="stat-value">N/A</div>
+          <div class="stat-label">Placeholder Metric</div>
+        </div>
+        <div class="stat-card alert">
+          <div class="stat-icon"><i class="fas fa-exclamation-triangle"></i></div>
+          <div class="stat-value">NOT STARTED</div>
+          <div class="stat-label">Critical Action Required</div>
+        </div>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dashboard-card data-overview">
+          <div class="card-header">
+            <div class="header-title-row">
+              <h2>Data Overview | VSME Reporting</h2>
+              <div class="overview-tasks">
+                <span class="tooltip-container">
+                  <i class="fa-solid fa-circle-exclamation"></i>
+                  <span class="custom-tooltip">You have 2 tasks to complete before 30/05/2025</span>
+                </span>
+                <span class="task-date">30/05/2025</span>
+              </div>
+            </div>
+          </div>
+          <div class="data-overview-content">
+            <div class="progress-circle-container">
+              <svg class="progress-ring" width="120" height="120">
+                <circle class="progress-ring__background" stroke="#e0e0e0" stroke-width="10" fill="transparent" r="50" cx="60" cy="60"/>
+                <circle class="progress-ring__circle" stroke="#1a2747" stroke-width="10" fill="transparent" r="50" cx="60" cy="60" data-progress="20" data-status="pending"/>
+              </svg>
+              <div class="progress-percentage">20%</div>
+              <div class="progress-label">DISCLOSURE<br>POINTS<br>COMPLETED</div>
+            </div>
+            <div class="data-overview-details">
+              <div class="overview-row">
+                <div class="mini-progress-circle">
+                  <svg class="progress-ring" width="64" height="64">
+                    <circle class="progress-ring__background" stroke="#e0e0e0" stroke-width="7" fill="transparent" r="27" cx="32" cy="32"/>
+                    <circle class="progress-ring__circle" stroke="#1a2747" stroke-width="7" fill="transparent" r="27" cx="32" cy="32" data-progress="99.8" data-status="complete"/>
+                    <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" class="progress-text">99%</text>
+                  </svg>
+                </div>
+                <div class="overview-info">
+                  <span class="label">PENDING DATA COLLECTION</span>
+                  <span class="value">1119 / 1121</span>
+                </div>
+              </div>
+              <div class="overview-row">
+                <div class="mini-progress-circle">
+                  <svg class="progress-ring" width="64" height="64">
+                    <circle class="progress-ring__background" stroke="#e0e0e0" stroke-width="7" fill="transparent" r="27" cx="32" cy="32"/>
+                    <circle class="progress-ring__circle" stroke="#1a2747" stroke-width="7" fill="transparent" r="27" cx="32" cy="32" data-progress="9.0" data-status="pending"/>
+                    <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle" class="progress-text">9%</text>
+                  </svg>
+                </div>
+                <div class="overview-info">
+                  <span class="label">PENDING APPROVAL</span>
+                  <span class="value">100 / 1121</span>
+                </div>
+              </div>
+              <a href="#" class="cta-link">
+                COMPLETE TASKS <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>Double Materiality</h2>
+          </div>
+          <div class="card-content">
+            <button class="button secondary-button"><i class="fas fa-tasks"></i>Topic Selection</button>
+            <button class="button secondary-button"><i class="fas fa-users"></i>Stakeholder Survey</button>
+            <button class="button secondary-button"><i class="fas fa-chart-line"></i>Data Analytics</button>
+            <button class="button secondary-button"><i class="fas fa-dashboard"></i>IRO Dashboard</button>
+          </div>
+        </div>
+
+        <div class="dashboard-card">
+          <div class="card-header">
+            <h2>GHG Emissions</h2>
+          </div>
+          <div class="card-content">
+            <button class="button secondary-button"><i class="fas fa-database"></i>Data Collection</button>
+            <button class="button secondary-button"><i class="fas fa-leaf"></i>Emission Reduction</button>
+            <button class="button secondary-button"><i class="fas fa-file-alt"></i>Scope Reporting</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="notifications-panel" class="notifications-panel">
+    <div class="notifications-header">
+      <span>News & Updates</span>
+      <i class="fa-solid fa-xmark close-btn" onclick="toggleNotifications()"></i>
+    </div>
+    <div class="notifications-content">
+      <div class="news-item">
+        <span class="news-date">25/09/2024</span>
+        <div class="news-text">IFRS Foundation Launches Guide to Help Companies Voluntarily Apply ISSB Sustainability Reporting Standards</div>
+      </div>
+      <div class="news-item">
+        <span class="news-date">11/09/2024</span>
+        <div class="news-text">Brazil's Environment Minister Wants to Reset the Carbon Credit Debate</div>
+      </div>
+      <div class="news-item">
+        <span class="news-date">08/09/2024</span>
+        <div class="news-text">The Latest in ESG and Stewardship Regulation – September 2024</div>
+      </div>
+      <div class="news-item">
+        <span class="news-date">01/05/2024</span>
+        <div class="news-text">Beyond CSR: How Data Centers Can Keep Up with Rising ESG Regulations</div>
+      </div>
+      <div class="news-item">
+        <span class="news-date">07/03/2024</span>
+        <div class="news-text">Sustainable products to become norm for consumers as new law enters into force</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
